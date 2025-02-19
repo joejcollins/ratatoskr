@@ -1,3 +1,3 @@
-# helheim
+# trash
 
 Python project example template

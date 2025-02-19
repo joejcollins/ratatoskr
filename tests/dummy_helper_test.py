@@ -1,6 +1,6 @@
 """Dummy tests."""
 
-from helheim import dummy_helper
+from trash import dummy_helper
 
 
 def test_dummy_addition() -> None:

@@ -1,5 +1,5 @@
 [project]
-name = "helheim"
+name = "trash"
 version = "0.1.0"
 description = "The realm of the dead where those who die a dishonorable death are forced to remain."
 authors = [{ name = "Earth Rover Program" }]
@@ -29,7 +29,7 @@ dependencies = [
     "tqdm",
 ]
 [project.urls]
-repository = "https://github.com/earthroverprogram/helheim"
+repository = "https://github.com/earthroverprogram/trash"
 
 [tool.pytest.ini_options]
 log_cli = false
