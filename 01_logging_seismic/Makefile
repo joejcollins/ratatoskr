@@ -7,12 +7,6 @@ clean: # Remove the environment.
 	find . -name "*.pyc" -exec rm -f {} \;
 	find . -type f -name "*.py[co]" -delete -or -type d -name "__pycache__" -delete
 
-docs: # Build the documentation.
-	cd docs && mkdocs build
-
-docs-serve: # Serve the documention.
-	cd docs && mkdocs serve
-
 lock:  # Create the lock file and requirements file.
 	rm -f requirements.txt
 	uv pip compile pyproject.toml --python .venv/bin/python --output-file=requirements.txt  requirements.in
@@ -23,11 +17,10 @@ help: # Show help for each of the makefile recipes.
 
 report:  # Report the python version and pip list.
 	.venv/bin/python --version
-	.venv/bin/python -m pip list -v
+	uv pip list -v
 
 test:  # Run the unit tests.
 	.venv/bin/pytest ./tests --verbose --color=yes
-	.venv/bin/pytest --cov=trash --cov-fail-under=80
 
 venv:  # Create the virtual environment.
 	uv venv .venv

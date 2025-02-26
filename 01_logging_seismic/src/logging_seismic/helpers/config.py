@@ -1,13 +1,22 @@
+"""Configuration file for the logging_seismic project.
+
+This file defines various paths and settings used throughout the project.
+It also initializes logging and handles optional integration with tqdm.
+"""
+
+import contextlib
 from pathlib import Path
 
 from dotenv import load_dotenv
 from loguru import logger
 
+from logging_seismic.helpers import file_finder_service
+
 # Load environment variables from .env file if it exists
 load_dotenv()
 
 # Paths
-PROJ_ROOT = Path(__file__).resolve().parents[1]
+PROJ_ROOT = Path(file_finder_service.FileFinderService().find_root())
 logger.info(f"PROJ_ROOT path is: {PROJ_ROOT}")
 
 DATA_DIR = PROJ_ROOT / "data"
@@ -23,10 +32,8 @@ FIGURES_DIR = REPORTS_DIR / "figures"
 
 # If tqdm is installed, configure loguru with tqdm.write
 # https://github.com/Delgan/loguru/issues/135
-try:
+with contextlib.suppress(ModuleNotFoundError):
     from tqdm import tqdm
 
     logger.remove(0)
     logger.add(lambda msg: tqdm.write(msg, end=""), colorize=True)
-except ModuleNotFoundError:
-    pass

@@ -2,6 +2,15 @@
     "version": "0.2",
     "language": "en",
     "words": [
-        "abcdefghijklmnopqrstuvwxyz"
+        "abcdefghijklmnopqrstuvwxyz",
+        "debugpy",
+        "dotenv",
+        "ipykernel",
+        "ipympl",
+        "loguru",
+        "mypy",
+        "pycache",
+        "pyright",
+        "pytest"
     ]
 }
